@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
-import { connect } from '@reduxjs/toolkit';
-import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { Switch, Route } from 'react-router-dom';
 
 import Loader from 'react-loader-spinner';
 import ContactForm from './components/ContactForm';
 import ContactsList from './components/ContactList';
 import Filter from './components/Filter';
+import Container from './components/Container';
+import AppBar from './components/AppBar';
 import { contactsOperations, contactsSelectors } from './redux/contacts';
+import HomeView from './views/HomeView/HomeView';
 
-import st from './App.module.css';
+// import st from './App.module.css';
 
 function App({ fetchContacts, isLoading }) {
   useEffect(() => {
@@ -16,7 +19,9 @@ function App({ fetchContacts, isLoading }) {
   }, [fetchContacts]);
 
   return (
-    <div className={st.wrapper}>
+    <Container>
+      <AppBar />
+      <HomeView />
       <h1>Phonebook</h1>
       <ContactForm />
 
@@ -27,7 +32,7 @@ function App({ fetchContacts, isLoading }) {
       {isLoading && (
         <Loader type="Puff" color="#00BFFF" height={80} width={80} />
       )}
-    </div>
+    </Container>
   );
 }
 
