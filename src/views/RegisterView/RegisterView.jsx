@@ -39,7 +39,6 @@ const RegisterView = ({ onRegister }) => {
 
 const mapDispatchToProps = dispatch => ({
   onRegister: data => {
-    console.log(data);
     return dispatch(authOperations.register(data));
   },
 });
