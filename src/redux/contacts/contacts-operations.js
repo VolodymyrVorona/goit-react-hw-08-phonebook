@@ -9,7 +9,9 @@ const fetchContacts = () => dispatch => {
   axios
     .get('/contacts')
     .then(({ data }) => dispatch(contactsActions.fetchContactsSuccess(data)))
-    .catch(error => dispatch(contactsActions.fetchContactsError(error)));
+    .catch(error =>
+      dispatch(contactsActions.fetchContactsError(error.message)),
+    );
 };
 
 const addContact = contact => dispatch => {
@@ -18,7 +20,7 @@ const addContact = contact => dispatch => {
   axios
     .post('/contacts', contact)
     .then(({ data }) => dispatch(contactsActions.addContactSuccess(data)))
-    .catch(error => dispatch(contactsActions.addContactError(error)));
+    .catch(error => dispatch(contactsActions.addContactError(error.message)));
 };
 
 const deleteContact = id => dispatch => {
@@ -27,7 +29,9 @@ const deleteContact = id => dispatch => {
   axios
     .delete(`/contacts/${id}`)
     .then(() => dispatch(contactsActions.deleteContactSuccess(id)))
-    .catch(error => dispatch(contactsActions.deleteContactError(error)));
+    .catch(error =>
+      dispatch(contactsActions.deleteContactError(error.message)),
+    );
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
