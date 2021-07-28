@@ -1,18 +1,20 @@
 import { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { authOperations } from './redux/auth';
 
 import Container from './components/Container';
 import AppBar from './components/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 import HomeView from './views/HomeView';
 import ContactsView from './views/ContactsView';
 import RegisterView from './views/RegisterView';
 import LoginView from './views/LoginView';
 
-// import st from './App.module.css';
+import route from './route';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,10 +28,27 @@ function App() {
       <AppBar />
 
       <Switch>
-        <Route exact path="/" component={HomeView} />
-        <Route path="/contacts" component={ContactsView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
+        <PublicRoute exact path={route.home} component={HomeView} />
+
+        <PrivateRoute
+          path={route.contacts}
+          component={ContactsView}
+          redirectTo={route.login}
+        />
+
+        <PublicRoute
+          path={route.register}
+          component={RegisterView}
+          restricted
+          redirectTo={route.home}
+        />
+
+        <PublicRoute
+          path={route.login}
+          component={LoginView}
+          restricted
+          redirectTo={route.home}
+        />
       </Switch>
     </Container>
   );
