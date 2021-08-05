@@ -40,14 +40,14 @@ function App() {
           path={route.register}
           component={RegisterView}
           restricted
-          redirectTo={route.home}
+          redirectTo={route.contacts}
         />
 
         <PublicRoute
           path={route.login}
           component={LoginView}
           restricted
-          redirectTo={route.home}
+          redirectTo={route.contacts}
         />
       </Switch>
     </Container>

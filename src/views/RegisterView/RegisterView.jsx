@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import useInput from '../../hooks';
 import { authOperations } from '../../redux/auth';
 
+import st from './RegisterView.module.css';
+
 const RegisterView = ({ onRegister }) => {
   const name = useInput('');
   const email = useInput('');
@@ -21,17 +23,45 @@ const RegisterView = ({ onRegister }) => {
 
   return (
     <div>
-      <h1>RegisterView</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name.value} onChange={name.onChange} />
-        <input type="text" value={email.value} onChange={email.onChange} />
-        <input
-          type="password"
-          value={password.value}
-          onChange={password.onChange}
-        />
+      <form className={st.form} autoComplete="off" onSubmit={handleSubmit}>
+        <b className={st.title}>Please, sign up</b>
 
-        <button type="submit">SEND EMAIL</button>
+        <label className={st.formField}>
+          Name
+          <input
+            className={st.formInput}
+            type="text"
+            value={name.value}
+            required
+            onChange={name.onChange}
+          />
+        </label>
+
+        <label className={st.formField}>
+          Email
+          <input
+            className={st.formInput}
+            type="email"
+            value={email.value}
+            required
+            onChange={email.onChange}
+          />
+        </label>
+
+        <label className={st.formField}>
+          Password
+          <input
+            className={st.formInput}
+            type="password"
+            value={password.value}
+            required
+            onChange={password.onChange}
+          />
+        </label>
+
+        <button className={st.formButton} type="submit">
+          Sign up
+        </button>
       </form>
     </div>
   );

@@ -1,15 +1,13 @@
-const getIsAuthenticated = state => state.auth.token;
+const getIsAuthenticated = state => state.auth.isAuthenticated;
 
 const getUserEmail = state => state.auth.user.email;
 
 const getUserName = state => state.auth.user.name;
 
-// const getUser = state => state?.auth?.user;
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const authSelectors = {
   getIsAuthenticated,
   getUserEmail,
   getUserName,
-  // getUser,
 };
+
+export default authSelectors;

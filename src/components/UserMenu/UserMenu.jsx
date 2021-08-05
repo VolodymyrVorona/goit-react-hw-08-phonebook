@@ -6,15 +6,15 @@ import st from './UserMenu.module.css';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUserEmail);
+  const email = useSelector(authSelectors.getUserEmail);
 
-  console.log(name);
+  console.log(email);
   const avatar = defaultAvatar;
 
   return (
     <div className={st.container}>
       <img src={avatar} alt="" width="32" className={st.avatar} />
-      <span className={st.name}>Добро пожаловать, {name}</span>
+      <span className={st.name}>Добро пожаловать, {email}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Выйти
       </button>

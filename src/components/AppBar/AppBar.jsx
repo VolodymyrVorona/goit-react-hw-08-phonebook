@@ -8,12 +8,13 @@ import Navigation from '../Navigation';
 import UserMenu from '../UserMenu';
 
 export default function AppBar() {
-  const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
+  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+
   return (
     <header className={st.header}>
       <Navigation />
 
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      {isAuthenticated ? <UserMenu /> : <AuthNav />}
     </header>
   );
 }
