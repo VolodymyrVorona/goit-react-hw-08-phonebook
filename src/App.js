@@ -30,12 +30,6 @@ function App() {
       <Switch>
         <PublicRoute exact path={route.home} component={HomeView} />
 
-        <PrivateRoute
-          path={route.contacts}
-          component={ContactsView}
-          redirectTo={route.login}
-        />
-
         <PublicRoute
           path={route.register}
           component={RegisterView}
@@ -49,6 +43,13 @@ function App() {
           restricted
           redirectTo={route.contacts}
         />
+
+        <PrivateRoute
+          path={route.contacts}
+          component={ContactsView}
+          redirectTo={route.login}
+        />
+        <PublicRoute component={HomeView} />
       </Switch>
     </Container>
   );

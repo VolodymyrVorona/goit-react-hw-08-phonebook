@@ -12,7 +12,7 @@ const LoginView = ({ onLogin }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const user = {
+    let user = {
       email: email.value,
       password: password.value,
     };
@@ -22,9 +22,9 @@ const LoginView = ({ onLogin }) => {
 
   return (
     <div>
-      <b className={st.title}>Please, log in</b>
-
       <form className={st.form} onSubmit={handleSubmit}>
+        <b className={st.title}>Please, log in</b>
+
         <label className={st.formField}>
           Email
           <input
@@ -59,46 +59,8 @@ const mdtp = {
   onLogin: authOperations.logIn,
 };
 
+// const mapDispatchToProps = dispatch => ({
+//   onLogin: data => dispatch(authOperations.logIn(data)),
+// });
+
 export default connect(null, mdtp)(LoginView);
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <div>
-  <b className="login-page-call">Please, log in</b>
-
-  <form
-    className="login-form"
-    autoComplete="off"
-    onSubmit={this.handleFormSubmit}
-  >
-    <label className="login-form-field">
-      Email
-      <input
-        className="login-form-input"
-        type="email"
-        name="email"
-        value={email}
-        required
-        placeholder="peter.parker@gmail.com"
-        onChange={this.handleInputChange}
-      />
-    </label>
-
-    <label className="login-form-field">
-      Password
-      <input
-        className="login-form-input"
-        type="password"
-        name="password"
-        value={password}
-        required
-        onChange={this.handleInputChange}
-      />
-    </label>
-
-    <button className="login-form-button" type="submit">
-      Log in
-    </button>
-  </form>
-</div>; */
-}

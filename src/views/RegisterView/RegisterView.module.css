@@ -19,9 +19,51 @@
   line-height: 1;
 }
 
+.formInput {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.formInput:hover,
+.formInput:focus {
+  outline: none;
+  border: 2px solid skyblue;
+}
+
+.formButton {
+  min-width: 80px;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: white;
+}
+
+.formButton:hover,
+.formButton:focus {
+  outline: none;
+  border: 2px solid skyblue;
+}
+
+.formButton:active {
+  background-color: skyblue;
+}
+
 @media screen and (min-width: 480px) {
   .form {
     width: 450px;
+  }
+
+  .formInput {
+    width: 426px;
   }
 }
 
@@ -33,4 +75,31 @@
   .formField {
     font-size: 30px;
   }
+
+  .formInput {
+    font-size: 24px;
+  }
 }
+
+/**
+.signup-form-button {
+  min-width: 80px;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: white;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 2px solid skyblue;
+  }
+
+  &:active {
+    background-color: skyblue;
+  }
+}
+**/
