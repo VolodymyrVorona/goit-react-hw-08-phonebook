@@ -9,7 +9,7 @@ import UserMenu from '../UserMenu';
 
 export default function AppBar() {
   const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
-  console.log(isAuthenticated);
+
   return (
     <header className={st.header}>
       <Navigation />

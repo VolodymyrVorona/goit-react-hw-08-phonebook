@@ -8,7 +8,6 @@ export default function UserMenu() {
   const dispatch = useDispatch();
   const email = useSelector(authSelectors.getUserEmail);
 
-  console.log(email);
   const avatar = defaultAvatar;
 
   return (
